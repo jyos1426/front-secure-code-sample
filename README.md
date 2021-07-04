@@ -18,12 +18,13 @@
 
 # 📝 Table of Contents
 
-1. [Search](#search) - 시큐어 코딩에 대한 기술조사
-2. [Sampling](#sampling) - 시큐어 코딩 샘플링
-3. [References](#refer) - 참고 문헌
+* [1. 시큐어 코딩에 대한 기술조사](#search)
+* [2. 프로젝트 반영 기술 선정](#selected)
+* [3. 시큐어 코딩 샘플링](#sampling)
+* [4. 참고 문헌](#refer)
 <br><br>
 
-# 🧐 Search <a name = "search"></a>
+# 🧐 시큐어 코딩에 대한 기술조사 <a name = "search"></a>
 
 ## 1. Angular Security Best Practices ([Angular-Security-Best-Practices.pdf](https://snyk.io/wp-content/uploads/Angular-Security-Best-Practices-1.pdf))
 <br>
@@ -62,7 +63,7 @@ ng serve --aot
 - Never use native DOM APIs to interact with HTML elements
 <br> - 일반적으로 피해야할 사항
 <br> 1. node.appendChild(); 사용
-<br> 2. page와 상호작용 하기위한 documentm 객체 메소스 사용
+<br> 2. page와 상호작용 하기위한 document 객체 메소스 사용
 <br> 3. jquery API 사용
 
 - Avoid template engines on server-side templates
@@ -70,12 +71,8 @@ ng serve --aot
 
 
 - Scan your Angular project for components which introduce security vulnerabilities
-<br> Angular 프로젝트 오픈 소스 종속성 및 Angular 구성 요소에서 보안 취약점을 검색
-<br> [Snyk] 플랫폼 또는 CLI를 무료로 사용하여 보안 취약점을 찾아 수정하고 모니터링
-```
-npm install -g snyk
-snyk test
-```
+<br> npm audit 또는 snyk를 사용하여 Angular 프로젝트 오픈 소스 종속성 및 Angular 구성 요소에서 보안 취약점을 검색
+<br> [Snyk](#synk) 플랫폼 또는 CLI를 무료로 사용하여 보안 취약점을 찾아 수정하고 모니터링
 
 ## 2. [Angular.io](https://angular.io/guide/security)
 
@@ -86,7 +83,33 @@ snyk test
 ---
 <br>
 
-# 🏁 Sampling <a name = "sampling"></a>
+# 🔧 프로젝트 반영 기술 선정 <a name = "selected"></a>
+
+## 1. snyk - [https://snyk.io](https://snyk.io/) <a name = "snyk"></a>
+프로젝트의 의존성을 검사해서 사용되는 라이브러리(npm packages)의 취약점을 확인하는 보안 도구, tool chain에 연동하여 commit 이나 build, CI/CD 시 자동 모니터링 가능, container image 도 검사가능
+```
+npm install -g snyk
+snyk test
+```
+- 검사 결과 예시
+```
+[root@localhost secure_code]# snyk test
+
+Testing /workspace/secure_code...
+
+Organization:      jyos1426
+Package manager:   npm
+Target file:       package-lock.json
+Project name:      secure-coding
+Open source:       no
+Project path:      /workspace/secure_code
+Licenses:          enabled
+
+✓ Tested 12 dependencies for known issues, no vulnerable paths found.
+```
+
+## 2. 
+# 🏁 샘플링 <a name = "sampling"></a>
 
 ### Prerequisites
 
@@ -97,7 +120,7 @@ Give examples
 ```
 
 
-# 🔧 References <a name = "refer"></a>
+# 🔧 4. 참고 문헌 <a name = "refer"></a>
 
 - [lesstif](https://www.lesstif.com/security/owasp-2020-10-91291830.html#OWASP202010%EB%8C%80%EC%B7%A8%EC%95%BD%EC%A0%90-A1.Injection(%EC%9D%B8%EC%A0%9D%EC%85%98)) - OWASP 2020 10대 취약점
 - [kisa](https://www.kisa.or.kr/public/laws/laws3_View.jsp?cPage=6&mode=view&p_No=259&b_No=259&d_No=52&ST=T&SV=) - 기술안내서 가이드

@@ -1,5 +1,16 @@
-<p> {{ (interpolate) 로 html Spnippet binding한 결과: </p>
-<p> {{htmlSnippet}}</p>
+<h3 style="font-weight: bold;">1. innerHTML 사용 예시</h3>
+<p>
+    Interpolated content은 항상 escape 처리되어 HTML은 표현되지 않고 텍스트 내용에 <, >를 그대로 표시한다. <br>
+</p>
+<div style="border:solid 1px grey">
+    <h4>● {{ (interpolate) 로 html Spnippet binding한 결과: </h4>
+    <p> {{htmlSnippet}}</p>
+</div>
 
-<p>[innerHTML]로 binding한 결과:</p>
-<p [innerHTML]="htmlSnippet"></p>
+<p>    
+    HTML을 표현하려면 이를 [innerHTML] 속성에 바인딩한다. Angular는 script를 안전하지 않은 값으로 인식하여 자동으로 스크립트 요소는 제거하고, b 요소와 같은 안전한 컨텐츠는 유지한다.
+</p>
+<div style="border:solid 1px grey">
+    <h4>● [innerHTML]로 binding한 결과:</h4>
+    <p [innerHTML]="htmlSnippet"></p>
+</div>

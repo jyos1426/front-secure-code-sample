@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
   templateUrl: './inner-html.component.html',
 })
 export class InnerHtmlComponent {
-  // For example, a user/attacker-controlled value from a URL.
+  // scipt 동작을 유발하는 코드 예시
   htmlSnippet = 'Template <script>alert("0wned")</script> <b>Syntax</b>';
 }
 

@@ -5,7 +5,6 @@ import { Component } from '@angular/core';
   template: `
   <h1>Security Code Example</h1>
   
-  <h3>1. innerHTML 사용 예시</h3>
   <app-inner-html></app-inner-html>
   `
 })

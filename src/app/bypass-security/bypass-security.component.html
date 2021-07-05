@@ -1,8 +1,17 @@
 <h3 style="font-weight: bold;">2. Bypass Security 예시</h3>
 
 <p>
-    공격자가 URL을 제어할 경우, Angular는 데이터 바인딩에서 데이터를 삭제한다.
+    공격자가 URL을 제어할 경우, Angular는 데이터 바인딩에서 데이터를 삭제한다.<br>
+    신뢰하는 value로 표시하려면, inject DomSanitizer 를 주입하고 다음 메소드를 호출한다. <br>
+    개발자 도구(F12)로 메소드를 사용한 trusted url과 untrusted url 확인.
 </p>
+<ul>
+    <li>bypassSecurityTrustHtml</li>
+    <li>bypassSecurityTrustScript</li>
+    <li>bypassSecurityTrustStyle</li>
+    <li>bypassSecurityTrustUrl</li>
+    <li>bypassSecurityTrustResourceUrl</li>
+</ul>
 <div style="border:solid 1px grey">
     <h4>● Untrusted URL:</h4>
     <p>
@@ -21,16 +30,8 @@
 </div>
 
 <p>
-    신뢰하는 value로 표시하려면, inject DomSanitizer 를 주입하고 다음 메소드를 호출한다. <br>
-    개발자 도구(F12)로 메소드를 사용한 trusted url과 untrusted url 확인.
+    ex) sanitizer.bypassSecurityTrustResourceUrl(this.dangerousVideoUrl)
 </p>
-<ul>
-    <li>bypassSecurityTrustHtml</li>
-    <li>bypassSecurityTrustScript</li>
-    <li>bypassSecurityTrustStyle</li>
-    <li>bypassSecurityTrustUrl</li>
-    <li>bypassSecurityTrustResourceUrl</li>
-</ul>
 <div style="border:solid 1px grey">
     <h4>●  Resource URL:</h4>
     <p>{{dangerousVideoUrl}}</p>

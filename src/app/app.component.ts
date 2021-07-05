@@ -6,6 +6,8 @@ import { Component } from '@angular/core';
   <h1>Security Code Example</h1>
   
   <app-inner-html></app-inner-html>
+  <br><br>
+  <app-bypass-security></app-bypass-security>
   `
 })
 export class AppComponent {

@@ -2,12 +2,14 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { BypassSecurityComponent } from './bypass-security/bypass-security.component';
 import { InnerHtmlComponent } from './inner-html/inner-html.component';
 
 @NgModule({
   imports: [ BrowserModule ],
   declarations: [
     AppComponent,
+    BypassSecurityComponent,
     InnerHtmlComponent
   ],
   bootstrap: [ AppComponent ]

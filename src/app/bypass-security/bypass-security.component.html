@@ -1,0 +1,53 @@
+<h3 style="font-weight: bold;">2. Bypass Security 예시</h3>
+
+<p>
+    공격자가 URL을 제어할 경우, Angular는 데이터 바인딩에서 데이터를 삭제한다.
+</p>
+<div style="border:solid 1px grey">
+    <h4>● Untrusted URL:</h4>
+    <p>
+        <a [href]="dangerousUrl">Click</a><br>
+        * href: {{dangerousUrl}}
+    </p>
+</div>
+
+<p>
+    Angular에게 이 값을 신뢰하도록 명시적으로 지시하려면 <strong>DomSanitizer를</strong>를 사용한다. <br>
+    ex) sanitizer.bypassSecurityTrustUrl(this.dangerousUrl)
+</p>
+<div style="border:solid 1px grey">
+    <h4>● Trusted URL:</h4>
+    <p><a [href]="trustedUrl">Click</a></p>
+</div>
+
+<p>
+    신뢰하는 value로 표시하려면, inject DomSanitizer 를 주입하고 다음 메소드를 호출한다. <br>
+    개발자 도구(F12)로 메소드를 사용한 trusted url과 untrusted url 확인.
+</p>
+<ul>
+    <li>bypassSecurityTrustHtml</li>
+    <li>bypassSecurityTrustScript</li>
+    <li>bypassSecurityTrustStyle</li>
+    <li>bypassSecurityTrustUrl</li>
+    <li>bypassSecurityTrustResourceUrl</li>
+</ul>
+<div style="border:solid 1px grey">
+    <h4>●  Resource URL:</h4>
+    <p>{{dangerousVideoUrl}}</p>
+</div>
+
+<p>
+</p>
+<div style="border:solid 1px grey">
+    <h4>● Trusted Resource URL:</h4>
+    <iframe width="640" height="390" [src]="videoUrl"></iframe>
+    <h4>● Untrusted Resource URL:</h4>
+    <iframe width="640" height="390" [src]="dangerousVideoUrl"></iframe>
+</div>
+
+
+<!-- 
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at https://angular.io/license
+-->
